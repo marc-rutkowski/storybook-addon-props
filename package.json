@@ -2,6 +2,10 @@
   "name": "storybook-addon-props",
   "version": "1.0.0",
   "description": "React Storybook Addon to show component properties and stories into panels",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marc-rutkowski/storybook-addon-props"
+  },
   "dependencies": {
     "@kadira/storybook-addons": "^1.6.1",
     "highlight.js": "=9.6.0",
