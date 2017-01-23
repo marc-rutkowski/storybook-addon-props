@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+.idea
+npm-debug.log
+/coverage
+/components
+/constants.js
+/manager.js
+/register.js
+/withDoc.js
