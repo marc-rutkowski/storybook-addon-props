@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-props",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Storybook Addon to show component properties and stories into panels",
   "repository": {
     "type": "git",
@@ -37,7 +37,11 @@
     "clear": "ls ./src | xargs rm -rf",
     "deploy-storybook": "storybook-to-ghpages"
   },
-  "keywords": ["react", "storybook", "addon"],
+  "keywords": [
+    "react",
+    "storybook",
+    "addon"
+  ],
   "author": "Marc Rutkowski",
   "license": "ISC"
 }
