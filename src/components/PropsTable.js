@@ -31,7 +31,7 @@ export const PropsTable = ({ props }) => (
     </thead>
     <tbody>
       {
-        Object.keys(props).sort().map((name) =>
+        props && Object.keys(props).sort().map((name) =>
           <PropsTableRow key={name} name={name} prop={props[name]} />
         )
       }
