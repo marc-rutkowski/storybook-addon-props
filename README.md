@@ -21,14 +21,14 @@ or (using Yarn) :
 
 ### Usage
 
-1. Register addon into the *.storybook/addons.js* file ([view doc](https://getstorybook.io/docs/react-storybook/addons/using-addons))
+#### Register addon into the *.storybook/addons.js* file ([view doc](https://getstorybook.io/docs/react-storybook/addons/using-addons))
 
 ```js
 import '@kadira/storybook/addons';
 import 'storybook-addon-props/register';
 ```
 
-2. Set addon into the *.storybook/config.js* file
+#### Set addon into the *.storybook/config.js* file
 
 ```js
 import { configure, setAddon } from '@kadira/storybook';
@@ -42,7 +42,7 @@ function loadStories() {
 configure(loadStories, module);
 ```
 
-3. Write stories
+#### Write stories
 
 Create your stories using the new `addWithDoc` function provided by this addon.
 
@@ -68,4 +68,3 @@ For another example, have a look at [this file](example/stories/index.js).
 | `component`   | The main component of the story          |
 | `description` | A string displayed into the Story panel  |
 | `storyFn`     | The story rendering function             |
-
