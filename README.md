@@ -1,11 +1,11 @@
 # React Storybook Props Addon
 
-This addon will add two new panels into the [Storybook](getstorybook.io) UI.
-- **Props**. Show component properties (extracted with [react-docgen](https://github.com/reactjs/react-docgen) by [Storybook](https://voice.kadira.io/component-metadata-react-storybook-ac0b218a2203#.tuzb01kb6))
+This addon provides two new panels for the [Storybook](getstorybook.io) UI.
+- **Props**. Shows component properties (extracted by [Storybook](https://voice.kadira.io/component-metadata-react-storybook-ac0b218a2203#.tuzb01kb6) using  [react-docgen](https://github.com/reactjs/react-docgen))
 
 ![snap1](./docs/snap1.png)
 
-- **Story**. Show story description and source code.
+- **Story**. Shows story description and source code.
 
 ![snap2](./docs/snap2.png)
 
@@ -13,27 +13,59 @@ Visible information are similar to [Storybook Info](https://github.com/storybook
 
 ### Install
 
-`npm install --save-dev storybook-addon-props`
+`npm i storybook-addon-props --save-dev`
+
+or (using Yarn) :
+
+`yarn add storybook-addon-props --dev`
 
 ### Usage
 
-Register addon at *.storybook/addons.js*
+1. Register addon into the *.storybook/addons.js* file ([view doc](https://getstorybook.io/docs/react-storybook/addons/using-addons))
 
 ```js
+import '@kadira/storybook/addons';
 import 'storybook-addon-props/register';
 ```
 
-Then create your stories with the *.withDoc* API.
+2. Set addon into the *.storybook/config.js* file
 
 ```js
-import withDoc from 'storybook-addon-props/withDoc';
+import { configure, setAddon } from '@kadira/storybook';
+import addWithDoc from 'storybook-addon-props';
+
+setAddon(addWithDoc);
+
+function loadStories() {
+  // ...
+}
+configure(loadStories, module);
+```
+
+3. Write stories
+
+Create your stories using the new `addWithDoc` function provided by this addon.
+
+```jsx
 import Button from '../Button';
 
 storiesOf('Button', module)
-.add('with label', withDoc(Button,
-    `It should render a button with a label`,
+.addWithDoc('with label', Button,
+    'It should render a button with a label',
     () => <Button onClick={action('clicked')}>Hello Button</Button>
 ));
 ```
 
-> Have a look at [this example](example/stories/index.js).
+For another example, have a look at [this file](example/stories/index.js).
+
+`addWithDoc` expects the following parameters:
+
+`addWithDoc(storyName, component, description, storyFn)`
+
+| Parameter     | Description                              |
+| ------------- | :--------------------------------------- |
+| `storyName`   | Name of the story (appears into the Left Panel) |
+| `component`   | The main component of the story          |
+| `description` | A string displayed into the Story panel  |
+| `storyFn`     | The story rendering function             |
+
