@@ -12,11 +12,11 @@ const Container = styled.div`
 
 
 export const Story = ({ data }) => {
-  const { kind, story, name, title, info, source } = data;
+  const { name, storyName, description, source } = data;
   return (
     <Container>
-      <p><b>{kind}</b> {story}</p>
-      <em>{title}</em>
+      <p><b>{name}</b> {storyName}</p>
+      <em>{description}</em>
       <h2>Code</h2>
       <SyntaxHighlighter language='javascript' style={docco}>{source}</SyntaxHighlighter>
     </Container>

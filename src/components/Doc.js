@@ -10,7 +10,7 @@ const Description = ({ children }) => <h3>{children}</h3>;
 const Story = ({ children }) => <quote>{children}</quote>;
 
 export const Doc = ({ data }) => {
-  const { kind, story, name, title, info, source } = data;
+  const { name, info } = data;
   return (
     <Container>
       <ComponentName>{name}</ComponentName>
