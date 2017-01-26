@@ -9,7 +9,7 @@ export default {
 
     return this.add(storyName, (context) => {
       const renderedStory = storyFn(context);
-      channel.emit(ADD_EVENT, {
+      channel && channel.emit(ADD_EVENT, {
         kind: context.kind,
         storyName,
         data: {
