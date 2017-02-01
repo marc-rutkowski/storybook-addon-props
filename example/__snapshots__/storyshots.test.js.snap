@@ -63,3 +63,24 @@ exports[`Storyshots H1 with label 1`] = `
   Header text
 </h1>
 `;
+
+exports[`Storyshots UserDetails default 1`] = `
+<div>
+  <p>
+    Id: 
+    1
+  </p>
+  <p>
+    Name: 
+    Joe
+  </p>
+  <p>
+    Num: 
+    42
+  </p>
+  <p>
+    Option: 
+    foo
+  </p>
+</div>
+`;
