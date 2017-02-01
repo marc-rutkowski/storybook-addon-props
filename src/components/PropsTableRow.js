@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FlowTypeProp from './FlowTypeProp';
 
 const PropName = styled.td`
   font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -18,6 +19,9 @@ const propTypeName = (prop) => {
       );
     }
     return prop.type.name;
+  }
+  if (prop && prop.flowType) {
+    return <FlowTypeProp flowType={prop.flowType} />;
   }
 };
 const enumValues = (values) => values.map(v => (
