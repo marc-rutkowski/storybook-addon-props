@@ -56,7 +56,7 @@ storiesOf('Button', module)
 ));
 ```
 
-For another example, have a look at [this file](example/stories/index.js).
+For another example, have a look at [this file](example/Button.stories.js).
 
 `addWithDoc` expects the following parameters:
 
@@ -68,3 +68,48 @@ For another example, have a look at [this file](example/stories/index.js).
 | `component`   | The main component of the story          |
 | `description` | A string displayed into the Story panel  |
 | `storyFn`     | The story rendering function             |
+
+#### Flow type support
+
+This addon support flow type annotations extracted by [react-docgen](https://github.com/reactjs/react-docgen#flow-type-support).
+
+For the following code :
+
+``` javascript
+export type User = {
+  id: number,
+  name: string,
+  country?: string,
+};
+
+type Props = {
+  /** User info */
+  user: User,
+  /** Some number */
+  num: number,
+  /** Optional property */
+  option?: string,
+  /** Optional callback */
+  func?: (value: string) => void,
+  /** Optional array of users */
+  friends?: Array<User>
+};
+
+/** Render user details */
+class UserDetails extends React.Component {
+  props: Props;
+
+  static defaultProps = {
+    option: 'foo',
+  };
+  
+  render() {
+  }
+}
+```
+
+the *Props* panel will show something like this: 
+
+![snap3](/Users/marc/workspace/storybook-addon-props/docs/snap3.png)
+
+View complete example: [component code](example/UserDetails.js) and [story](example/UserDetails.stories.js).
