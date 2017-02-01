@@ -110,6 +110,6 @@ class UserDetails extends React.Component {
 
 the *Props* panel will show something like this: 
 
-![snap3](/Users/marc/workspace/storybook-addon-props/docs/snap3.png)
+![snap3](./docs/snap3.png)
 
 View complete example: [component code](example/UserDetails.js) and [story](example/UserDetails.stories.js).
