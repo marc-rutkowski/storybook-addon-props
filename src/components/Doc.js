@@ -7,15 +7,15 @@ const Container = styled.div`
 `;
 const ComponentName = ({ children }) => <h2>{children}</h2>;
 const Description = ({ children }) => <h3>{children}</h3>;
-const Story = ({ children }) => <quote>{children}</quote>;
 
 export const Doc = ({ data }) => {
   const { name, info } = data;
   return (
     <Container>
       <ComponentName>{name}</ComponentName>
-      <Description>{info.description}</Description>
-      <PropsTable props={info.props} />
+      { info && <Description>{info.description}</Description> }
+      { info && <PropsTable props={info.props} /> }
+      { !info && <a target="_blank" href="https://github.com/marc-rutkowski/storybook-addon-props/issues/1">Component metadata cannot be extracted</a> }
     </Container>
   );
 }
