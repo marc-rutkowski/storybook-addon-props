@@ -1,4 +1,4 @@
-# React Storybook Props Addon
+# React Storybook Props addon
 
 This addon provides two new panels for the [Storybook](getstorybook.io) UI.
 - **Props**. Shows component properties (extracted by [Storybook](https://voice.kadira.io/component-metadata-react-storybook-ac0b218a2203#.tuzb01kb6) using  [react-docgen](https://github.com/reactjs/react-docgen))
@@ -154,3 +154,13 @@ the *Props* panel will show something like this:
 ![snap3](./docs/snap3.png)
 
 View complete example: [component code](example/UserDetails.js) and [story](example/UserDetails.stories.js).
+
+### Status
+
+The creation of this addon was initially motivated by this [issue](https://github.com/storybooks/react-storybook-addon-info/issues/67) on react-storybook-addon-info repo.
+
+Since then, @7rulnik provides a [good example](https://github.com/storybooks/storyshots/issues/78#issuecomment-278123759) on how to disable/mock react-storybook-addon-info (or other addons & decorators) when running  Jest with Storyshots.
+
+Additionaly I just want to try to create my own NPM module (good experience!)
+
+This is really not a top quality code (no tests...), but I think it do the job, and I'm using it on a project for one of my clients. So I will continue to improve it to match the project needs. And of course try to fix things if I'll get some feedback about it...
