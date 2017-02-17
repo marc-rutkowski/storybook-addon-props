@@ -5,7 +5,7 @@ import Button from './Button';
 
 storiesOf('Button', module)
 .addWithDoc('with label', Button,
-  'It should render a button with a label',
+  'It should render a button with a label (sample link to tracker #3)',
   () => <Button onClick={action('clicked')}>Hello Button</Button>
 )
 .addWithDoc('with some emoji', Button,
