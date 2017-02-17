@@ -69,6 +69,47 @@ For another example, have a look at [this file](example/Button.stories.js).
 | `description` | A string displayed into the Story panel  |
 | `storyFn`     | The story rendering function             |
 
+#### Options
+
+Alternatively you can configure the `addWithDoc` function using the `configureDoc` named export.
+
+This function allows you to pass an `options` object.
+
+At this time only two options are supported to enable automatic links insertion on a issues tracker when a issue ID pattern is detected into the `description` field of a story.
+
+Supported options are :
+
+| Parameter    | Description                              | Default     |
+| ------------ | ---------------------------------------- | ----------- |
+| `trackerUrl` | The tracker URL template string. Use `%ID%` to insert the issue ID. |             |
+| `pattern`    | The issue ID regexp pattern.             | `#([0-9]+)` |
+
+Pass options into `.storybook/config.js` like this:
+
+``` javascript
+import { configureDoc } from 'storybook-addon-props'
+
+const addWithDoc = configureDoc({
+  trackerUrl: 'https://github.com/marc-rutkowski/storybook-addon-props/issues/%ID%',
+});
+
+setAddon(addWithDoc);
+```
+
+Then into a story you can reference an issue like this:
+
+```javascript
+storiesOf('Button', module)
+.addWithDoc('with label', Button,
+  'It should render a button with a label (sample link to tracker #3)',
+  () => <Button onClick={action('clicked')}>Hello Button</Button>
+)
+```
+
+And a link to issue `#3` will be added into the story panel:
+
+![snap4](./docs/snap4.png) 
+
 #### Flow type support
 
 This addon support flow type annotations extracted by [react-docgen](https://github.com/reactjs/react-docgen#flow-type-support).

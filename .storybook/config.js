@@ -1,7 +1,12 @@
+import React from 'react';
 import { configure, setAddon } from '@kadira/storybook';
 // in your project replace to:
-// import addWithDoc from 'storybook-addon-props'
-import addWithDoc from '../src';
+// import { configureDoc } from 'storybook-addon-props'
+import { configureDoc } from '../src';
+
+const addWithDoc = configureDoc({
+  trackerUrl: 'https://github.com/marc-rutkowski/storybook-addon-props/issues/%ID%',
+});
 
 setAddon(addWithDoc);
 
