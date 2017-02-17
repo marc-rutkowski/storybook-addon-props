@@ -1,3 +1,6 @@
+#2.1.0
+Automatic links insertion into story description #3
+
 #2.0.3
 Don't break if component metadata are not available #1
 
