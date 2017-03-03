@@ -1,3 +1,6 @@
+#2.1.1
+Change tab order to display Story before Props panel
+
 #2.1.0
 Automatic links insertion into story description #3
 
