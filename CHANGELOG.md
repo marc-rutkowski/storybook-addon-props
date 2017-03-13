@@ -1,3 +1,9 @@
+#2.1.2
+- Better serialization for Immutable data struct.
+- Display required props name with bold font weight
+- Display required props in first into the Props tab
+- Show info message into console when component’s metadata cannot be extracted (close #1)
+
 #2.1.1
 Change tab order to display Story before Props panel
 
