@@ -4,6 +4,7 @@ import FlowTypeProp from './FlowTypeProp';
 
 const PropName = styled.td`
   font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-weight: ${({required}) => required ? 'bold' : 'inherit'};
 `;
 const unionValues = (values) => values.map(v => (
   <li key={v.name}>{v.name}</li>
@@ -36,7 +37,7 @@ const propTypeValue = (prop) => {
 export const PropTableRow = ({ name, prop }) => {
   return (
     <tr>
-      <PropName>{name}</PropName>
+      <PropName required={prop.required}>{name}</PropName>
       <td>{propTypeName(prop)}</td>
       <td>{prop.required ? 'yes' : 'no'}</td>
       <td>{prop.description}</td>
