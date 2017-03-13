@@ -10,12 +10,18 @@ const Description = ({ children }) => <h3>{children}</h3>;
 
 export const Doc = ({ data }) => {
   const { name, info } = data;
+  if (!info) {
+    console.log(`
+      It seems that component metadata cannot be extracted.
+      Please review react-docgen guidelines for correct extraction.
+      https://github.com/reactjs/react-docgen#guidelines-for-default-resolvers-and-handlers
+    `);
+  }
   return (
     <Container>
       <ComponentName>{name}</ComponentName>
       { info && <Description>{info.description}</Description> }
       { info && <PropsTable props={info.props} /> }
-      { !info && <a target="_blank" href="https://github.com/marc-rutkowski/storybook-addon-props/issues/1">Component metadata cannot be extracted</a> }
     </Container>
   );
 }
