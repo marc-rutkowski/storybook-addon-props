@@ -9,7 +9,8 @@
   "dependencies": {
     "@kadira/storybook-addons": "^1.6.1",
     "highlight.js": "=9.6.0",
-    "jsx-to-string": "^1.0.0",
+    "immutable": "4.0.0-rc.2",
+    "json-stringify-pretty-compact": "^1.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-syntax-highlighter": "^4.0.1",

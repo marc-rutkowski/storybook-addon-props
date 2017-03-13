@@ -17,7 +17,9 @@ type Props = {
   /** Optional callback */
   func?: (value: string) => void,
   /** Optional array of users */
-  friends?: Array<User>
+  friends?: Array<User>,
+  /** immutable data*/
+  imm?: object,
 };
 
 /** Render user details */

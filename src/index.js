@@ -1,7 +1,7 @@
 import React from 'react';
 import addons from '@kadira/storybook-addons';
 import { ADD_EVENT } from './constants';
-import jsxToString from 'jsx-to-string';
+import jsxToString from './jsx-to-string';
 
 export function configureDoc(options) {
   return {
