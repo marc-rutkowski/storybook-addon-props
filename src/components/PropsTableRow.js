@@ -4,12 +4,10 @@ import FlowTypeProp from './FlowTypeProp';
 
 const PropName = styled.td`
   font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-weight: ${({required}) => required ? 'bold' : 'inherit'};
+  font-weight: ${({ required }) => (required ? 'bold' : 'inherit')};
 `;
-const unionValues = (values) => values.map(v => (
-  <li key={v.name}>{v.name}</li>
-));
-const propTypeName = (prop) => {
+const unionValues = values => values.map(v => <li key={v.name}>{v.name}</li>);
+const propTypeName = prop => {
   if (prop && prop.type) {
     if (prop.type.value && prop.type.name === 'union') {
       return (
@@ -25,12 +23,10 @@ const propTypeName = (prop) => {
     return <FlowTypeProp flowType={prop.flowType} />;
   }
 };
-const enumValues = (values) => values.map(v => (
-  <li key={v.value}>{v.value}</li>
-));
-const propTypeValue = (prop) => {
+const enumValues = values => values.map(v => <li key={v.value}>{v.value}</li>);
+const propTypeValue = prop => {
   if (prop.type && prop.type.value && prop.type.name === 'enum') {
-    return (<ul>{enumValues(prop.type.value)}</ul>);
+    return <ul>{enumValues(prop.type.value)}</ul>;
   }
 };
 

@@ -24,14 +24,14 @@ or (using Yarn) :
 #### Register addon into the *.storybook/addons.js* file ([view doc](https://getstorybook.io/docs/react-storybook/addons/using-addons))
 
 ```js
-import '@kadira/storybook/addons';
+import '@storybook/addons';
 import 'storybook-addon-props/register';
 ```
 
 #### Set addon into the *.storybook/config.js* file
 
 ```js
-import { configure, setAddon } from '@kadira/storybook';
+import { configure, setAddon } from '@storybook/react';
 import addWithDoc from 'storybook-addon-props';
 
 setAddon(addWithDoc);

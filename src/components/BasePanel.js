@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { setData, getData } from '../manager';
 import { ADD_EVENT } from '../constants';
 
@@ -6,7 +7,7 @@ export default class BasePanel extends React.Component {
   static propTypes = {
     getData: PropTypes.func,
     onStory: PropTypes.func,
-    channel: PropTypes.object
+    channel: PropTypes.object,
   };
 
   state = {
@@ -21,10 +22,11 @@ export default class BasePanel extends React.Component {
     this.props.channel.on(ADD_EVENT, ({ kind, storyName, data }) => {
       setData(kind, storyName, data);
 
-      if (this.waitForData
-          && this.waitForData[0] === kind
-          && this.waitForData[1] === storyName) {
-
+      if (
+        this.waitForData &&
+        this.waitForData[0] === kind &&
+        this.waitForData[1] === storyName
+      ) {
         this.showData(kind, storyName);
         this.waitForData = null;
       }
@@ -33,7 +35,9 @@ export default class BasePanel extends React.Component {
 
   componentDidMount() {
     const { onStory } = this.props;
-    this.stopListeningOnStory = onStory((kind, storyName) => this.showData(kind, storyName));
+    this.stopListeningOnStory = onStory((kind, storyName) =>
+      this.showData(kind, storyName)
+    );
   }
 
   showData(kind, storyName) {
@@ -44,7 +48,7 @@ export default class BasePanel extends React.Component {
     }
 
     this.setState({
-      data
+      data,
     });
   }
 

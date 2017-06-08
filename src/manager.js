@@ -7,6 +7,6 @@ export const getData = (kind, storyName) => {
 };
 
 export const setData = (kind, storyName, data) => {
-  const id = getStoryId(kind, storyName)
+  const id = getStoryId(kind, storyName);
   store.set(id, data);
 };
