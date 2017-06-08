@@ -1,36 +1,39 @@
 {
   "name": "storybook-addon-props",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "React Storybook Addon to show component properties and stories into panels",
   "repository": {
     "type": "git",
     "url": "https://github.com/marc-rutkowski/storybook-addon-props"
   },
   "dependencies": {
-    "@kadira/storybook-addons": "^1.6.1",
+    "@storybook/addons": "3.0.0",
     "highlight.js": "=9.6.0",
-    "immutable": "4.0.0-rc.2",
+    "immutable": "next",
     "json-stringify-pretty-compact": "^1.0.2",
+    "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-syntax-highlighter": "^4.0.1",
     "styled-components": "^1.3.1"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
-    "@kadira/storybook-deployer": "^1.2.0",
+    "@storybook/addon-actions": "^3.0.1",
+    "@storybook/addon-storyshots": "3.0.0",
+    "@storybook/react": "3.0.1",
     "babel-core": "^6.17.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "flow-bin": "^0.38.0",
     "jest": "^18.1.0",
-    "storyshots": "^3.2.1"
+    "react-test-renderer": "^15.5.4"
   },
   "peerDependencies": {
-    "@kadira/storybook-addons": "^1.5.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "@storybook/addons": "3.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4"
   },
   "scripts": {
     "test": "jest",

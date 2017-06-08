@@ -17,7 +17,7 @@ const Table = styled.table`
   }
 `;
 
-export const PropsTable = ({ props }) => (
+export const PropsTable = ({ props }) =>
   <Table>
     <thead>
       <tr>
@@ -30,18 +30,21 @@ export const PropsTable = ({ props }) => (
       </tr>
     </thead>
     <tbody>
-      {
-        props && Object.keys(props).filter(name => props[name].required).sort().map((name) =>
-          <PropsTableRow key={name} name={name} prop={props[name]} />
-        )
-      }
-      {
-        props && Object.keys(props).filter(name => !props[name].required).sort().map((name) =>
-          <PropsTableRow key={name} name={name} prop={props[name]} />
-        )
-      }
+      {props &&
+        Object.keys(props)
+          .filter(name => props[name].required)
+          .sort()
+          .map(name =>
+            <PropsTableRow key={name} name={name} prop={props[name]} />
+          )}
+      {props &&
+        Object.keys(props)
+          .filter(name => !props[name].required)
+          .sort()
+          .map(name =>
+            <PropsTableRow key={name} name={name} prop={props[name]} />
+          )}
     </tbody>
-  </Table>
-);
+  </Table>;
 
 export default PropsTable;

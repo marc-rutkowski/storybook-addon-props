@@ -6,7 +6,7 @@ const style = {
 };
 
 /** Simple header */
-const H1 = ({ children }) => (<h1 style={style}>{children}</h1>);
+const H1 = ({ children }) => <h1 style={style}>{children}</h1>;
 H1.propTypes = {
   /** Header content */
   children: React.PropTypes.node.isRequired,

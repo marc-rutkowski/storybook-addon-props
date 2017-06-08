@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 // $FlowFixMe
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import { fromJS } from 'immutable';
 
 import UserDetails from './UserDetails';
@@ -13,12 +13,12 @@ const user: User = {
 };
 
 const imm = fromJS({
-  test: 'abc',  
+  test: 'abc',
 });
 
-storiesOf('UserDetails', module)
-.addWithDoc('default', UserDetails,
-  'It should render given user info',
-  () => <UserDetails user={user} num={42} imm={imm} />
-)
-;
+storiesOf(
+  'UserDetails',
+  module
+).addWithDoc('default', UserDetails, 'It should render given user info', () =>
+  <UserDetails user={user} num={42} imm={imm} />
+);

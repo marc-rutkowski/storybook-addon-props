@@ -20,10 +20,10 @@ export const Doc = ({ data }) => {
   return (
     <Container>
       <ComponentName>{name}</ComponentName>
-      { info && <Description>{info.description}</Description> }
-      { info && <PropsTable props={info.props} /> }
+      {info && <Description>{info.description}</Description>}
+      {info && <PropsTable props={info.props} />}
     </Container>
   );
-}
+};
 
 export default Doc;

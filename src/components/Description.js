@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 // parse description string to detect where to add links on tracker
@@ -15,26 +16,28 @@ const getTrackerLinks = (description, pattern = '#([0-9]+)', trackerUrl) => {
     index = reIssueId.lastIndex;
   }
   if (index < description.length) {
-      result.push(description.substring(index, description.length));
+    result.push(description.substring(index, description.length));
   }
   return result.length > 0 ? result : description;
-}
+};
 
 class Description extends React.Component {
   static propTypes = {
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.arrayOf(React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.shape({
-          href: React.PropTypes.string.isRequired,
-          text: React.PropTypes.string.isRequired,
-        }),
-      ])),
+    children: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.shape({
+            href: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired,
+          }),
+        ])
+      ),
     ]),
-    options: React.PropTypes.shape({
-      trackerUrl: React.PropTypes.string,
-      pattern: React.PropTypes.string,
+    options: PropTypes.shape({
+      trackerUrl: PropTypes.string,
+      pattern: PropTypes.string,
     }),
   };
 
@@ -43,19 +46,23 @@ class Description extends React.Component {
   };
 
   renderArray(entries) {
-    return entries.map((e, index) => typeof e === 'string' 
-      ? <span key={index}>{e}</span>
-      : <a key={index} href={e.href} target="_blank">{e.text}</a>
+    return entries.map(
+      (e, index) =>
+        typeof e === 'string'
+          ? <span key={index}>{e}</span>
+          : <a key={index} href={e.href} target="_blank">{e.text}</a>
     );
   }
 
   render() {
     const { children, options } = this.props;
-    const { trackerUrl, pattern } = options; 
+    const { trackerUrl, pattern } = options;
     const description = getTrackerLinks(children, pattern, trackerUrl);
     return (
       <em>
-        {Array.isArray(description) ? this.renderArray(description) : description}
+        {Array.isArray(description)
+          ? this.renderArray(description)
+          : description}
       </em>
     );
   }

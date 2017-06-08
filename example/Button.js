@@ -11,14 +11,10 @@ const buttonStyles = {
 };
 
 /** A simple Button */
-const Button = ({ children, onClick }) => (
-  <button
-    style={buttonStyles}
-    onClick={onClick}
-  >
+const Button = ({ children, onClick }) =>
+  <button style={buttonStyles} onClick={onClick}>
     {children}
-  </button>
-);
+  </button>;
 
 Button.propTypes = {
   /** Button content */

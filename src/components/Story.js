@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SyntaxHighlighter, { registerLanguage } from "react-syntax-highlighter/dist/light"
+import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
 import js from 'highlight.js/lib/languages/javascript';
 import { docco } from 'react-syntax-highlighter/dist/styles';
 import Description from './Description';
@@ -18,9 +18,11 @@ export const Story = ({ data }) => {
       <p><b>{name}</b> {storyName}</p>
       <Description options={options}>{description}</Description>
       <h2>Code</h2>
-      <SyntaxHighlighter language='javascript' style={docco}>{source}</SyntaxHighlighter>
+      <SyntaxHighlighter language="javascript" style={docco}>
+        {source}
+      </SyntaxHighlighter>
     </Container>
   );
-}
+};
 
 export default Story;
