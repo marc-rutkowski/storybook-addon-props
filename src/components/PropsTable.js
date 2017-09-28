@@ -1,32 +1,27 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropsTableRow from './PropsTableRow';
 
-const Table = styled.table`
-  border: 1px solid grey;
-  border-spacing: 0;
-  th {
-    background-color: lightgrey;
-    border: 1px solid grey;
-    padding: 4px 16px;
-  }
-  td {
-    border: 1px solid grey;
-    border-spacing: 0;
-    padding: 4px 16px;
-  }
-`;
+const tableStyle = {
+  border: '1px solid grey',
+  borderSpacing: 0,
+};
 
-export const PropsTable = ({ props }) =>
-  <Table>
+const thStyle = {
+  backgroundColor: 'lightgrey',
+  border: '1px solid grey',
+  padding: '4px 16px',
+};
+
+export const PropsTable = ({ props }) => (
+  <table style={tableStyle}>
     <thead>
       <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Description</th>
-        <th>Values</th>
-        <th>Default</th>
+        <th style={thStyle}>Property</th>
+        <th style={thStyle}>Type</th>
+        <th style={thStyle}>Required</th>
+        <th style={thStyle}>Description</th>
+        <th style={thStyle}>Values</th>
+        <th style={thStyle}>Default</th>
       </tr>
     </thead>
     <tbody>
@@ -34,17 +29,18 @@ export const PropsTable = ({ props }) =>
         Object.keys(props)
           .filter(name => props[name].required)
           .sort()
-          .map(name =>
+          .map(name => (
             <PropsTableRow key={name} name={name} prop={props[name]} />
-          )}
+          ))}
       {props &&
         Object.keys(props)
           .filter(name => !props[name].required)
           .sort()
-          .map(name =>
+          .map(name => (
             <PropsTableRow key={name} name={name} prop={props[name]} />
-          )}
+          ))}
     </tbody>
-  </Table>;
+  </table>
+);
 
 export default PropsTable;

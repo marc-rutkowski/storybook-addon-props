@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Storyshots Button with a label and an icon 1`] = `
 <button
   onClick={[Function]}
@@ -11,7 +13,8 @@ exports[`Storyshots Button with a label and an icon 1`] = `
       "margin": 10,
       "padding": "3px 10px",
     }
-  }>
+  }
+>
   Settings ⚙️
 </button>
 `;
@@ -29,7 +32,8 @@ exports[`Storyshots Button with label 1`] = `
       "margin": 10,
       "padding": "3px 10px",
     }
-  }>
+  }
+>
   Hello Button
 </button>
 `;
@@ -47,7 +51,8 @@ exports[`Storyshots Button with some emoji 1`] = `
       "margin": 10,
       "padding": "3px 10px",
     }
-  }>
+  }
+>
   😀 😎 👍 💯
 </button>
 `;
@@ -59,7 +64,8 @@ exports[`Storyshots H1 with label 1`] = `
       "fontSize": "2em",
       "marginBottom": "0.25em",
     }
-  }>
+  }
+>
   Header text
 </h1>
 `;

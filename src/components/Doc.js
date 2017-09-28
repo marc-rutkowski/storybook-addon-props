@@ -1,10 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropsTable from './PropsTable';
 
-const Container = styled.div`
-  padding: 0 12px;
-`;
 const ComponentName = ({ children }) => <h2>{children}</h2>;
 const Description = ({ children }) => <h3>{children}</h3>;
 
@@ -18,11 +14,11 @@ export const Doc = ({ data }) => {
     `);
   }
   return (
-    <Container>
-      <ComponentName>{name}</ComponentName>
-      {info && <Description>{info.description}</Description>}
+    <div style={{ padding: '0 12px' }}>
+      <h2>{name}</h2>
+      {info && <h3>{info.description}</h3>}
       {info && <PropsTable props={info.props} />}
-    </Container>
+    </div>
   );
 };
 

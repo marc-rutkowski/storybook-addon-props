@@ -9,9 +9,9 @@ const FlowTypeProp = ({ flowType }) => {
           <pre>{flowType.raw}</pre>
           <pre>
             {flowType.elements &&
-              flowType.elements.map(t =>
+              flowType.elements.map(t => (
                 <FlowTypeProp key={t.name} flowType={t} />
-              )}
+              ))}
           </pre>
         </div>
       );

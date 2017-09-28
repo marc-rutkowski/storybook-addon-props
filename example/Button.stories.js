@@ -1,8 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
-import Button from './Button';
+import Button from './Button'
 
 storiesOf('Button', module)
   .addWithDoc(
@@ -14,7 +14,9 @@ storiesOf('Button', module)
   .addWithDoc(
     'with some emoji',
     Button,
-    'It should render a button with emoji',
+    `It should render a button with emoji
+     It should also support some *markdown* **formatting** 
+    `,
     () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
   )
   .addWithDoc(
@@ -22,4 +24,4 @@ storiesOf('Button', module)
     Button,
     'It should render a button with a label and an emoji',
     () => <Button onClick={action('clicked')}>Settings ⚙️</Button>
-  );
+  )

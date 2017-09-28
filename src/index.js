@@ -1,16 +1,19 @@
-import React from 'react';
-import addons from '@storybook/addons';
-import { ADD_EVENT } from './constants';
-import jsxToString from './jsx-to-string';
+import React from 'react'
+import addons from '@storybook/addons'
+import { ADD_EVENT } from './constants'
+import jsxToString from 'jsx-to-string'
 
 export function configureDoc(options) {
   return {
     addWithDoc(storyName, component, description, storyFn) {
-      const channel = addons.getChannel();
-
       return this.add(storyName, context => {
-        const renderedStory = storyFn(context);
-        channel &&
+        const channel = addons.getChannel()
+        const renderedStory = storyFn(context)
+        if (channel) {
+          const info =
+            component.__docgenInfo &&
+            component.__docgenInfo.length > 0 &&
+            component.__docgenInfo[0]
           channel.emit(ADD_EVENT, {
             kind: context.kind,
             storyName,
@@ -18,16 +21,17 @@ export function configureDoc(options) {
               storyName,
               description,
               options,
-              info: component.__docgenInfo,
+              info,
               name: component.name,
               source: jsxToString(renderedStory),
             },
-          });
+          })
+        }
 
-        return renderedStory;
-      });
+        return renderedStory
+      })
     },
-  };
+  }
 }
 
-export default configureDoc();
+export default configureDoc()

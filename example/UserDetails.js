@@ -1,11 +1,11 @@
 /* @flow */
-import React from 'react';
+import React from 'react'
 
 export type User = {
   id: number,
   name: string,
   country?: string,
-};
+}
 
 type Props = {
   /** User info */
@@ -18,20 +18,20 @@ type Props = {
   func?: (value: string) => void,
   /** Optional array of users */
   friends?: Array<User>,
-  /** immutable data*/
-  imm?: object,
-};
+  /** immutable data */
+  imm?: any,
+}
 
 /** Render user details */
-class UserDetails extends React.Component {
-  props: Props;
+class UserDetails extends React.Component<Props> {
+  props: Props
 
   static defaultProps = {
     option: 'foo',
-  };
+  }
 
   render() {
-    const { user, num, option } = this.props;
+    const { user, num, option } = this.props
     return (
       <div>
         <p>Id: {user.id}</p>
@@ -39,8 +39,8 @@ class UserDetails extends React.Component {
         <p>Num: {num}</p>
         {option && <p>Option: {option}</p>}
       </div>
-    );
+    )
   }
 }
 
-export default UserDetails;
+export default UserDetails
