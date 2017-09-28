@@ -1,11 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import FlowTypeProp from './FlowTypeProp';
 
-const PropName = styled.td`
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-weight: ${({ required }) => (required ? 'bold' : 'inherit')};
-`;
+const tdStyle = {
+  border: '1px solid grey',
+  borderSpacing: 0,
+  padding: '4px 16px',
+};
+
+const propNameStyle = required => ({
+  ...tdStyle,
+  font: '12px Consolas, "Liberation Mono", Menlo, Courier, monospace',
+  fontWeight: required ? 'bold' : 'inherit',
+});
+
 const unionValues = values => values.map(v => <li key={v.name}>{v.name}</li>);
 const propTypeName = prop => {
   if (prop && prop.type) {
@@ -33,12 +40,12 @@ const propTypeValue = prop => {
 export const PropTableRow = ({ name, prop }) => {
   return (
     <tr>
-      <PropName required={prop.required}>{name}</PropName>
-      <td>{propTypeName(prop)}</td>
-      <td>{prop.required ? 'yes' : 'no'}</td>
-      <td>{prop.description}</td>
-      <td>{propTypeValue(prop)}</td>
-      <td>{prop.defaultValue && prop.defaultValue.value}</td>
+      <td style={propNameStyle(prop.required)}>{name}</td>
+      <td style={tdStyle}>{propTypeName(prop)}</td>
+      <td style={tdStyle}>{prop.required ? 'yes' : 'no'}</td>
+      <td style={tdStyle}>{prop.description}</td>
+      <td style={tdStyle}>{propTypeValue(prop)}</td>
+      <td style={tdStyle}>{prop.defaultValue && prop.defaultValue.value}</td>
     </tr>
   );
 };

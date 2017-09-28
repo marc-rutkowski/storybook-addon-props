@@ -1,3 +1,12 @@
+#3.0.3
+- Update to latest Storybook version
+- Support Markdown into story description 
+
+#3.0.2
+Updated to support storybook 3
++ use external prop-types package
++ prettier all files
+
 #2.1.2
 - Better serialization for Immutable data struct.
 - Display required props name with bold font weight

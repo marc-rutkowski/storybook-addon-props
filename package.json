@@ -1,39 +1,43 @@
 {
   "name": "storybook-addon-props",
-  "version": "3.0.2",
-  "description": "React Storybook Addon to show component properties and stories into panels",
+  "version": "3.0.3",
+  "description":
+    "React Storybook Addon to show component properties and stories into panels",
   "repository": {
     "type": "git",
     "url": "https://github.com/marc-rutkowski/storybook-addon-props"
   },
   "dependencies": {
-    "@storybook/addons": "3.0.0",
+    "@storybook/addon-actions": "^3.2.10",
+    "@storybook/addon-storyshots": "^3.2.11",
+    "@storybook/addons": "^3.2.10",
+    "@storybook/react": "^3.2.11",
     "highlight.js": "=9.6.0",
     "immutable": "4.0.0-rc.2",
-    "json-stringify-pretty-compact": "^1.0.2",
-    "prop-types": "^15.5.10",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-syntax-highlighter": "^4.0.1",
-    "styled-components": "^2.0.1"
+    "jsx-to-string": "^1.1.0",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0",
+    "react-remarkable": "^1.1.2",
+    "react-syntax-highlighter": "^5.7.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.0.1",
-    "@storybook/addon-storyshots": "3.0.0",
-    "@storybook/react": "3.0.1",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.17.0",
+    "babel-plugin-styled-components": "^1.2.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "flow-bin": "^0.38.0",
-    "jest": "^18.1.0",
-    "react-test-renderer": "^15.5.4"
+    "babel-preset-stage-0": "^6.24.1",
+    "flow-bin": "^0.55.0",
+    "jest": "^21.2.0",
+    "jest-cli": "^21.2.0",
+    "react-test-renderer": "^15.6.0"
   },
   "peerDependencies": {
-    "@storybook/addons": "3.0.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-test-renderer": "^15.5.4"
+    "react": "*",
+    "react-dom": "*",
+    "@storybook/addons": "*"
   },
   "scripts": {
     "test": "jest",
@@ -44,11 +48,7 @@
     "clear": "ls ./src | xargs rm -rf",
     "deploy-storybook": "storybook-to-ghpages"
   },
-  "keywords": [
-    "react",
-    "storybook",
-    "addon"
-  ],
+  "keywords": ["react", "storybook", "addon"],
   "author": "Marc Rutkowski",
   "license": "ISC"
 }

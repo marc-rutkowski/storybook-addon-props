@@ -1,0 +1,12 @@
+{
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    [
+      "babel-plugin-react-docgen",
+      {
+        "DOC_GEN_COLLECTION_NAME": "STORYBOOK_REACT_CLASSES",
+        "resolver": "findAllExportedComponentDefinitions"
+      }
+    ]
+  ]
+}

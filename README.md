@@ -1,6 +1,15 @@
 # React Storybook Props addon
 
-This addon provides two new panels for the [Storybook](getstorybook.io) UI.
+> Display Props and Story documentation/source into Storybook UI panels. 
+
+### Status
+
+This repo is intented to be deprecated when this [PR](https://github.com/storybooks/storybook/pull/1501) will be finally merged. But if you want to try it...
+
+### Purpose
+
+The addon provides two new panels for the [Storybook](https://storybook.js.org) UI.
+
 - **Props**. Shows component properties (extracted by [Storybook](https://voice.kadira.io/component-metadata-react-storybook-ac0b218a2203#.tuzb01kb6) using  [react-docgen](https://github.com/reactjs/react-docgen))
 
 ![snap1](./docs/snap1.png)
@@ -9,7 +18,7 @@ This addon provides two new panels for the [Storybook](getstorybook.io) UI.
 
 ![snap2](./docs/snap2.png)
 
-Visible information are similar to [Storybook Info](https://github.com/storybooks/react-storybook-addon-info) addon, but doesn't alter the output of the story into the preview area. This provides a better usage for the Storyshots feature because snapshot will only contains the rendered story.
+Visible information are similar to [Storybook Info](https://github.com/storybooks/storybook/tree/master/addons/info) addon, but doesn't alter the output of the story into the preview area. This provides a better usage for the [Storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) feature because snapshots will only contains the rendered stories.
 
 ### Install
 
@@ -21,14 +30,34 @@ or (using Yarn) :
 
 ### Usage
 
-#### Register addon into the *.storybook/addons.js* file ([view doc](https://getstorybook.io/docs/react-storybook/addons/using-addons))
+#### Add a custom `.storybook/.babelrc` file
+
+```json
+{
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    [
+      "babel-plugin-react-docgen",
+      {
+        "DOC_GEN_COLLECTION_NAME": "STORYBOOK_REACT_CLASSES",
+        "resolver": "findAllExportedComponentDefinitions"
+      }
+    ]
+  ]
+}
+```
+
+The custom balel config is used to set a different resolver for the `babel-plugin-react-docgen`.
+This is necessary to avoid warnings about files with multiple React component exports.
+
+#### Register addon into the `.storybook/addons.js` file ([view doc](https://storybook.js.org/addons/using-addons/))
 
 ```js
 import '@storybook/addons';
 import 'storybook-addon-props/register';
 ```
 
-#### Set addon into the *.storybook/config.js* file
+#### Set addon into the `.storybook/config.js` file
 
 ```js
 import { configure, setAddon } from '@storybook/react';
@@ -66,7 +95,7 @@ For another example, have a look at [this file](example/Button.stories.js).
 | ------------- | :--------------------------------------- |
 | `storyName`   | Name of the story (appears into the Left Panel) |
 | `component`   | The main component of the story          |
-| `description` | A string displayed into the Story panel  |
+| `description` | A string displayed into the Story panel (Markdown supported here!) |
 | `storyFn`     | The story rendering function             |
 
 #### Options
@@ -155,12 +184,4 @@ the *Props* panel will show something like this:
 
 View complete example: [component code](example/UserDetails.js) and [story](example/UserDetails.stories.js).
 
-### Status
 
-The creation of this addon was initially motivated by this [issue](https://github.com/storybooks/react-storybook-addon-info/issues/67) on react-storybook-addon-info repo.
-
-Since then, @7rulnik provides a [good example](https://github.com/storybooks/storyshots/issues/78#issuecomment-278123759) on how to disable/mock react-storybook-addon-info (or other addons & decorators) when running  Jest with Storyshots.
-
-Additionaly I just want to try to create my own NPM module (good experience!)
-
-This is really not a top quality code (no tests...), but I think it do the job, and I'm using it on a project for one of my clients. So I will continue to improve it to match the project needs. And of course try to fix things if I'll get some feedback about it...

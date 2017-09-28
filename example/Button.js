@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const buttonStyles = {
   border: '1px solid #eee',
@@ -8,30 +9,28 @@ const buttonStyles = {
   fontSize: 15,
   padding: '3px 10px',
   margin: 10,
-};
+}
 
 /** A simple Button */
-const Button = ({ children, onClick }) =>
+const Button = ({ children, onClick }) => (
   <button style={buttonStyles} onClick={onClick}>
     {children}
-  </button>;
+  </button>
+)
 
 Button.propTypes = {
   /** Button content */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   /** Click handler */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
   /** testOneOf */
-  testOneOf: React.PropTypes.oneOf(['default', 'positive']),
+  testOneOf: PropTypes.oneOf(['default', 'positive']),
   /** testOneOfType */
-  testOneOfType: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
-  ]),
-};
+  testOneOfType: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+}
 
 Button.defaultProps = {
   children: 'OK',
-};
+}
 
-export default Button;
+export default Button
