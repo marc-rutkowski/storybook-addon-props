@@ -3,7 +3,7 @@ import SyntaxHighlighter, {
   registerLanguage,
 } from 'react-syntax-highlighter/dist/light';
 import js from 'highlight.js/lib/languages/javascript';
-import { docco } from 'react-syntax-highlighter/dist/styles';
+import { docco } from 'react-syntax-highlighter/dist/styles/hljs';
 import Description from './Description';
 
 registerLanguage('javascript', js);
