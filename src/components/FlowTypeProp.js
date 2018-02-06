@@ -15,7 +15,13 @@ const FlowTypeProp = ({ flowType }) => {
           </pre>
         </div>
       );
-      break;
+
+    case 'union':
+      return (
+        <div>
+          <pre>{flowType.raw}</pre>
+        </div>
+      );
 
     default:
       return <pre>{flowType.name}</pre>;

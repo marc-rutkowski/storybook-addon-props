@@ -1,3 +1,6 @@
+#3.0.4
+Improve display for Flow unions (#14)
+
 #3.0.3
 - Update to latest Storybook version
 - Support Markdown into story description 

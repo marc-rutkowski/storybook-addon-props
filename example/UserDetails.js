@@ -13,7 +13,7 @@ type Props = {
   /** Some number */
   num: number,
   /** Optional property */
-  option?: string,
+  option?: 'foo' | 'bar',
   /** Optional callback */
   func?: (value: string) => void,
   /** Optional array of users */
